@@ -1,6 +1,8 @@
+import ThemeProvider from "@/context/ThemeProvider/Index";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-
+import QueryClientProvider from "@/context/QueryClientProvider";
+import SnakberProvider from "@/context/AppProvider";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -23,11 +25,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-   
-          {children}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <ThemeProvider>
+          <SnakberProvider>
+            <QueryClientProvider>{children}</QueryClientProvider>
+          </SnakberProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
