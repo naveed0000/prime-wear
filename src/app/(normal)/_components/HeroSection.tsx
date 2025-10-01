@@ -5,7 +5,7 @@ import Image from "next/image";
 
 import { Box, Grid } from "@mui/material";
 import HeroSwiper from "./HeroSwiper";
-import products from "@/seed/ProductData";
+import products from "@/json/ProductData";
 export default function HeroSection() {
   return (
     <Grid
@@ -13,7 +13,7 @@ export default function HeroSection() {
       sx={{
         width: "100%",
         height: "100%",
-        marginBlockEnd: 5,
+        marginBlock: { xs: 1, sm: 2.5, lg: 2 },
       }}
     >
       <Grid size={12}>
@@ -26,8 +26,6 @@ export default function HeroSection() {
                 sx={{
                   width: "100%",
                   height: "100%",
-                  paddingBlock: { xs: 1, sm: 2.5, md: 5, lg: 5 },
-                  // paddingInline: { xs: 1, sm: 2.5, md: 5, lg: 5 },
                 }}
               >
                 <Image
